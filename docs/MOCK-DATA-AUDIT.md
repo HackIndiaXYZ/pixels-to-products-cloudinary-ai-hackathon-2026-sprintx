@@ -10,7 +10,7 @@
 
 These values were transcribed from the handoff. The `repeat` helper repeats fixed values three times; it does not call an API. Dates and model versions say "Not recorded in handoff". Treat these as unverified historical examples, not measured results for the newly supplied photos.
 
-`src/components/Workspace.tsx` starts in recorded mode and imports these reports. The Evidence cards and their numerical descriptions also summarize these fixed values. Its `SignIllustration` SVG is a drawn storefront; desk and cyclist previews are icons with fixed numbers. These previews are not original photographs or provider outputs.
+`src/components/Workspace.tsx` starts in recorded mode and imports these reports. The Evidence cards and their numerical descriptions also summarize these fixed values. All three previews now display the actual user-supplied source photographs, with links to the original files. The old storefront illustration and numerical placeholder previews have been removed. Displaying the photos does not verify the historical outputs.
 
 `README.md`, under Recorded evidence and limits, repeats the historical observations with the same limitations.
 

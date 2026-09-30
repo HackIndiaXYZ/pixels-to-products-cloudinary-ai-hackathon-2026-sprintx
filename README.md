@@ -66,9 +66,9 @@ Examples transcribed from the supplied engineering handoff:
 | Desk | 3 pens in 3/3 runs | At 200px, 2 pens in 3/3 runs |
 | Cyclists | 5, 5, 4 bicycles | No transformation conclusion |
 
-The three sample photos were subsequently supplied and are preserved unchanged in `public/samples`. Exact prompts, raw responses, dates and model versions for the historical results remain unavailable. These are hard-coded reported observations, not verified results for the supplied photos. The storefront visual is an illustration. No 800px pass or other unobserved result is invented. Collect fresh raw reports before presenting these as independently reproduced experiments.
+The three sample photos were subsequently supplied and are preserved unchanged in `public/samples`. Exact prompts, raw responses, dates and model versions for the historical results remain unavailable. These are hard-coded reported observations, not verified results for the supplied photos. All three recorded previews display the user-supplied source photos; click a photo to open the original. No 800px pass or other unobserved result is invented. Collect fresh raw reports before presenting these as independently reproduced experiments.
 
-See [the mock-data audit](docs/MOCK-DATA-AUDIT.md) for every location containing fixed example outputs, illustrations or test fixtures, and [sample attribution](public/samples/ATTRIBUTION.md) for the supplied photos and upload limits.
+See [the mock-data audit](docs/MOCK-DATA-AUDIT.md) for every location containing fixed example outputs or test fixtures, and [sample attribution](public/samples/ATTRIBUTION.md) for the supplied photos and upload limits.
 
 ## Implementation
 
