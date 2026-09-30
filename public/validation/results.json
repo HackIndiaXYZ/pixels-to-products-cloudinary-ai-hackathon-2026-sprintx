@@ -1,0 +1,970 @@
+{
+  "screenedAt": "2026-09-30T12:06:01.037Z",
+  "experiment": "artifacts/receipt-validation-2026-09-30T11-58-41-962Z",
+  "protocol": "Three original runs, then three each at eligible 600px and 200px for stable nonempty originals. Money formatting normalized; no answer hints or retries.",
+  "limitation": "Reference totals are not independently verified. Agreement is not proof of accuracy. Width and q_auto change together. This sample cannot estimate production failure rates.",
+  "results": [
+    {
+      "id": "receipt-01",
+      "source": "https://commons.wikimedia.org/wiki/File:20140409_Dresden_Dobritz_Salzbuger_Stra%C3%9Fe_Nettomarkt_Einkaufszettel.jpg",
+      "sha256": "1885118438f7fe659c30463e13555b8046c375e0a4254248f23d07421cf53276",
+      "status": "SCREENED",
+      "finding": "Stable original; amount changed at one or more tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T11:58:53.799Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T11:58:58.712Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T11:59:03.177Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:07.805Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:11.703Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:16.018Z",
+          "output": {
+            "total": "16.69"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T11:59:20.279Z",
+          "output": {
+            "total": "40.14"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T11:59:24.209Z",
+          "output": {
+            "total": "40.16"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T11:59:28.278Z",
+          "output": {
+            "total": "40.16"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "16.69",
+            "16.69",
+            "16.69"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "DRIFT"
+        }
+      ]
+    },
+    {
+      "id": "receipt-02",
+      "source": "https://commons.wikimedia.org/wiki/File:Castorama_Wroclaw_Krzywoustego_receipt_2021.jpg",
+      "sha256": "5cf670118f3fc075f7700657cfba7d4ec30e56cade840a7347c1b88373e99e26",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T11:59:38.733Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T11:59:42.848Z",
+          "output": {
+            "total": "61,96"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T11:59:46.876Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:51.426Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:55.403Z",
+          "output": {
+            "total": "61,96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T11:59:59.334Z",
+          "output": {
+            "total": "61,96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:04.507Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:08.958Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:12.952Z",
+          "output": {
+            "total": "61.96"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "61.96",
+            "61.96",
+            "61.96"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-03",
+      "source": "https://commons.wikimedia.org/wiki/File:CRO_%E2%80%94_Istria_%E2%80%93_Umag_(cash_receipt_Pivo_To%C4%8Deno)_2020.JPG",
+      "sha256": "3c8c3fea8cab50900bc6358c3ebe272a6e8a64ad544e546e2644b3f6c94e34c5",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:00:23.910Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:00:27.858Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:00:31.914Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:00:36.199Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:00:40.499Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:00:44.819Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:50.089Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:54.453Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:00:58.830Z",
+          "output": {
+            "total": "24.00"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "24.00",
+            "24.00",
+            "24.00"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-04",
+      "source": "https://commons.wikimedia.org/wiki/File:Family_Dollar_store_receipt.jpg",
+      "sha256": "23ef0d0031ad5c74e61c1d0fcb7130212e0bbffdeb5650eaaff684747a7ae65f",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:01:08.723Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:01:12.557Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:01:16.788Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:01:21.562Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:01:26.319Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:01:30.060Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:01:34.424Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:01:38.588Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:01:42.860Z",
+          "output": {
+            "total": "2.18"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "2.18",
+            "2.18",
+            "2.18"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-05",
+      "source": "https://commons.wikimedia.org/wiki/File:Kassenbon.jpg",
+      "sha256": "da2ac27b01a2322b12d4c53171bd5c7becbdb33d6ef7896138b3e1697c091cac",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:01:53.542Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:01:57.930Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:02:02.012Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:06.962Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:11.028Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:15.225Z",
+          "output": {
+            "total": "14,84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:02:21.363Z",
+          "output": {
+            "total": "14.84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:02:25.612Z",
+          "output": {
+            "total": "14.84"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:02:29.352Z",
+          "output": {
+            "total": "14.84"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "14.84",
+            "14.84",
+            "14.84"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-06",
+      "source": "https://commons.wikimedia.org/wiki/File:Malmo_%26_Co_receipt,_1899_(MOHAI_11884).jpg",
+      "sha256": "8f15e48a1b697785278f0222f82e3dd7571ff637f96b36939ee21efb8b4fdf7c",
+      "status": "SCREENED",
+      "finding": "Stable original; amount changed at one or more tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:02:38.467Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:02:42.365Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:02:46.338Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:51.579Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:55.352Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:02:59.561Z",
+          "output": {
+            "total": "5.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:04.377Z",
+          "output": {
+            "total": "1.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:08.469Z",
+          "output": {
+            "total": "4.20"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:12.361Z",
+          "output": {
+            "total": "1.00"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "5.00",
+            "5.00",
+            "5.00"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "DRIFT"
+        }
+      ]
+    },
+    {
+      "id": "receipt-07",
+      "source": "https://commons.wikimedia.org/wiki/File:Receipt_from_Lawson_in_South_Tangerang,_Indonesia_with_QRIS_CPM_(2025-09-02).jpg",
+      "sha256": "9bf5e29254a26e7d838831cf220cbc49875b4806ad32005bb5932a6dbe7072b2",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:03:24.242Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:03:30.075Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:03:34.081Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:03:38.574Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:03:42.677Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:03:46.564Z",
+          "output": {
+            "total": "13000.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:51.066Z",
+          "output": {
+            "total": "13.000"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:54.968Z",
+          "output": {
+            "total": "13000"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:03:58.852Z",
+          "output": {
+            "total": "13,000"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "13000.00",
+            "13000.00",
+            "13000.00"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-08",
+      "source": "https://commons.wikimedia.org/wiki/File:Thalhammer_Kaufhaus_Altaussee_Kassazettel_19630711.jpg",
+      "sha256": "19829e4603b2de22af8108db8785ac95694f96c10907a58fe5e467ef65bb722b",
+      "status": "SCREENED",
+      "finding": "Stable original; one or more presets returned invalid or incomplete results.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:04:10.522Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:04:14.934Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:04:19.046Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:04:23.928Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:04:27.828Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:04:31.964Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:04:36.227Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:04:41.141Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:04:45.254Z",
+          "output": {
+            "total": "01.75"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "1.75",
+            "1.75",
+            "1.75"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "ERROR"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-09",
+      "source": "https://commons.wikimedia.org/wiki/File:0B83181C-3DCA-4008-837D-5ED65hdekkektguufnvnnf.jpg",
+      "sha256": "5276d3c77043c84f814031db67c182ba59c4cb4f3570d66966eb96324839186e",
+      "status": "SCREENED",
+      "finding": "Stable original; amount preserved at the tested widths.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:04:55.850Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:05:00.156Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:05:04.042Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:05:09.025Z",
+          "output": {
+            "total": "700,00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:05:13.025Z",
+          "output": {
+            "total": "700,00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 600,
+          "at": "2026-09-30T12:05:17.039Z",
+          "output": {
+            "total": "700,00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:05:21.688Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:05:26.093Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        },
+        {
+          "width": 200,
+          "at": "2026-09-30T12:05:30.134Z",
+          "output": {
+            "total": "700.00"
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "STABLE",
+          "values": [
+            "700.00",
+            "700.00",
+            "700.00"
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "PASS"
+        },
+        {
+          "width": 200,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "id": "receipt-10",
+      "source": "https://commons.wikimedia.org/wiki/File:Tesco_receipt,Easby_Wood_-_geograph.org.uk_-_176290.jpg",
+      "sha256": "e83386bcb0864707075472240d39a018a891add1e4e8ebe849ec544676dd1d8c",
+      "status": "SCREENED",
+      "finding": "Original total unreadable, invalid, or inconsistent; smaller images not evaluated.",
+      "observations": [
+        {
+          "width": null,
+          "at": "2026-09-30T12:05:39.646Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:05:43.657Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        },
+        {
+          "width": null,
+          "at": "2026-09-30T12:05:47.603Z",
+          "output": {
+            "total": ""
+          },
+          "model": "1"
+        }
+      ],
+      "baseline": [
+        {
+          "status": "ERROR",
+          "values": [
+            null,
+            null,
+            null
+          ]
+        }
+      ],
+      "evaluations": [
+        {
+          "width": 600,
+          "status": "UNTESTED"
+        },
+        {
+          "width": 200,
+          "status": "UNTESTED"
+        }
+      ]
+    }
+  ]
+}

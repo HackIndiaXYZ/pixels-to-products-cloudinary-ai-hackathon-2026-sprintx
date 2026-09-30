@@ -49,7 +49,8 @@ References: [Analyze API](https://cloudinary.com/documentation/analyze_api_refer
 
 - **STABLE**: all three valid baseline outputs agree after conservative string normalization.
 - **UNSTABLE**: baseline answers differ, or reported model versions change.
-- **PASS**: every stable field matches in all three valid variant runs.
+- **PASS**: every selected field has a stable baseline and matches in all three valid variant runs.
+- **PARTIAL**: comparable fields match, but some original fields are unstable or invalid. No full-task width recommendation is issued.
 - **DRIFT**: at least one stable field changes in at least one valid variant run; all values remain visible.
 - **ERROR**: incomplete runs, API/schema failures, no stable fields or an incompatible reported model version.
 - **Not tested**: no measurements are available.

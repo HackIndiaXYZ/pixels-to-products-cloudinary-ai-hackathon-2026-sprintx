@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "description": "Standardized dummy benchmark images and semantic invariant conditions for InvariantLens",
+  "fixtures": [
+    {
+      "id": "safety-sign",
+      "title": "ANSI Safety Signage",
+      "category": "Text & Regulatory Signs",
+      "filename": "safety-sign.jpg",
+      "url": "/dummy/safety-sign.jpg",
+      "defaultTaskType": "text",
+      "defaultTerms": "CAUTION, NO SMOKING, MATCHES, OPEN LIGHTS"
+    },
+    {
+      "id": "storefront-signage",
+      "title": "Storefront Window Signage",
+      "category": "Text & Regulatory Signs",
+      "filename": "storefront-signage.jpg",
+      "url": "/dummy/storefront-signage.jpg",
+      "defaultTaskType": "text",
+      "defaultTerms": "CHOO, TEA, OPEN, NO SMOKING, NO VAPING"
+    },
+    {
+      "id": "desk-workspace",
+      "title": "Desk Workspace Inventory",
+      "category": "Object Counting & Inventory",
+      "filename": "desk-workspace.jpg",
+      "url": "/dummy/desk-workspace.jpg",
+      "defaultTaskType": "count",
+      "defaultTerms": "pens, notebooks, laptops"
+    },
+    {
+      "id": "urban-cyclists",
+      "title": "Urban Cyclist Mobility",
+      "category": "Object Counting & Inventory",
+      "filename": "urban-cyclists.jpg",
+      "url": "/dummy/urban-cyclists.jpg",
+      "defaultTaskType": "count",
+      "defaultTerms": "bicycles, people, helmets"
+    },
+    {
+      "id": "product-packaging",
+      "title": "Cosmetic Product Packaging",
+      "category": "Product Quality & Inspection",
+      "filename": "product-packaging.jpg",
+      "url": "/dummy/product-packaging.jpg",
+      "defaultTaskType": "custom",
+      "defaultTerms": ""
+    }
+  ]
+}
