@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Activity, ArrowDown, ArrowDownToLine, ArrowRight, Check, ChevronDown, CircleHelp, Cloud, Code2, ExternalLink, Eye, FileImage, FlaskConical, Focus, Layers3, LoaderCircle, Play, Plus, ScanLine, ShieldCheck, Sparkles, Square, UploadCloud, X } from "lucide-react";
 import { baseline, buildPrompt, countTask, evaluate, recommend, taskSchema, textTask, WIDTHS, type Report, type Run, type Value } from "@/lib/domain";
+import { TaskBuilder } from "./TaskBuilder";
 import { examples } from "@/lib/examples";
 
 type Uploaded = { token: string; url: string; asset: NonNullable<Report["asset"]> };
@@ -28,6 +29,7 @@ export function Workspace() {
   const [taskType, setTaskType] = useState("text");
   const [terms, setTerms] = useState("OPEN, NO SMOKING, NO VAPING");
   const [custom, setCustom] = useState(defaultCustom);
+  const [editingJson, setEditingJson] = useState(false);
   const [file, setFile] = useState<File>();
   const [preview, setPreview] = useState<string>();
   const [ready, setReady] = useState(false);
@@ -46,6 +48,7 @@ export function Workspace() {
   }, [file]);
   useEffect(() => () => controller.current?.abort(), []);
 
+  const customValid = (() => { try { const t = taskSchema.parse(JSON.parse(custom)); return !!t.name.trim() && !!t.instruction.trim() && t.fields.every(f => !!f.label.trim() && !!f.description.trim()); } catch { return false; } })();
   const invariants = baseline(report.task, report.runs);
   const stableCount = invariants.filter(f => f.status === "STABLE").length;
   const evaluations = WIDTHS.map(w => evaluate(report.task, report.runs, w));
@@ -59,7 +62,7 @@ export function Workspace() {
   }
   function changeMode(next: "live" | "recorded") {
     if (busy) return;
-    setMode(next); setError("");
+    setMode(next); setEditingJson(false); setError("");
     if (next === "recorded") loadExample(example);
     else setReport({ mode: "live", title: "Your next experiment", task: textTask(["OPEN", "NO SMOKING", "NO VAPING"]), runs: [] });
   }
@@ -85,7 +88,7 @@ export function Workspace() {
     return data;
   }
   async function runTest() {
-    if (!file || busy) return;
+    if (!file || busy || (taskType === "custom" && (!customValid || editingJson))) return;
     let task;
     try {
       const items = [...new Set(terms.split(",").map(t => t.trim()).filter(Boolean))];
@@ -160,7 +163,7 @@ export function Workspace() {
               {mode === "recorded" ? <><div className="example-select"><label htmlFor="example">Experiment</label><div className="select-wrap"><select id="example" value={example} onChange={e => loadExample(e.target.value)}><option value="storefront">Storefront signage</option><option value="desk">Desk object count</option><option value="cyclists">Cyclist baseline variability</option></select><ChevronDown size={15}/></div></div><div className="image-preview"><a href={samplePhotos[example]} target="_blank" rel="noreferrer" aria-label={`Open original photo: ${report.title}`}><img src={samplePhotos[example]} alt={report.title} /></a><span className="image-caption">Your source photo · historical results unverified</span></div><div className="asset-footer"><FileImage size={15}/><span>{report.title}</span><span className="file-tag">HANDOFF</span></div></> : <><input ref={fileInput} type="file" accept="image/jpeg,image/png,image/webp" hidden onChange={e => selectFile(e.target.files?.[0])}/><button disabled={busy} className={`upload-zone ${dragging ? "dragging" : ""}`} onClick={() => fileInput.current?.click()} onDragOver={e => { e.preventDefault(); setDragging(true); }} onDragLeave={() => setDragging(false)} onDrop={e => { e.preventDefault(); setDragging(false); if (!busy) selectFile(e.dataTransfer.files[0]); }}>{preview ? <img src={preview} alt="Selected image for analysis"/> : <><span className="upload-icon"><UploadCloud size={28}/></span><strong>Drop an image to begin</strong><span>or click to browse your files</span><small>JPG, PNG, WebP · up to 4 MB</small></>}</button><div className="asset-footer"><FileImage size={15}/><span>{file?.name ?? "No image selected"}</span>{file && <small>{(file.size / 1000).toFixed(0)} KB</small>}</div><div className="sample-action"><button className="secondary" disabled={busy} onClick={loadPublicSample}>Use public test image</button><a href="/samples/ATTRIBUTION.md" target="_blank" rel="noreferrer">Photo credit · CC0</a></div><p className="input-note">Uploaded images are stored in your Cloudinary account. Only presets smaller than the original are tested.</p></>}
             </section>
             <section className="panel task-panel"><div className="section-heading"><span className="step-number">02</span><h2>Define what matters</h2><span className="muted-label">AI TASK</span></div>
-              {mode === "recorded" ? <><div className="task-selected"><span className="task-icon">{report.task.name === "Text preservation" ? <ScanLine size={21}/> : <Layers3 size={21}/>}</span><div><strong>{report.task.name}</strong><p>{example === "storefront" ? "Keep every selected phrase readable." : "Preserve the visible object count."}</p></div><Check size={17}/></div><label className="field-label">SELECTED INVARIANTS <span>{report.task.fields.length} fields</span></label><div className="invariant-chips">{report.task.fields.map(f => <span key={f.key}><Check size={12}/>{f.label}</span>)}</div><div className="baseline-explainer"><ShieldCheck size={19}/><div><strong>Consistency comes first.</strong><p>Three original runs establish which answers are stable enough to compare.</p></div><span className="runs-token">×3</span></div><div className="recorded-banner"><span className="amber-dot"/><span>Recorded observations · not a live test</span></div></> : <><label className="field-label" htmlFor="task-type">TASK TEMPLATE</label><div className="select-wrap"><select id="task-type" disabled={busy} value={taskType} onChange={e => { setTaskType(e.target.value); setTerms(e.target.value === "count" ? "pens, phones, laptops" : "OPEN, NO SMOKING, NO VAPING"); }}><option value="text">Text preservation</option><option value="count">Object counting</option><option value="custom">Custom structured task</option></select><ChevronDown size={15}/></div><label className="field-label" htmlFor="task-content">{taskType === "custom" ? "TASK JSON · FLAT SCALAR FIELDS" : taskType === "text" ? "PHRASES TO PRESERVE" : "OBJECTS TO COUNT"}</label><textarea id="task-content" className={taskType === "custom" ? "custom-input" : ""} disabled={busy} value={taskType === "custom" ? custom : terms} onChange={e => taskType === "custom" ? setCustom(e.target.value) : setTerms(e.target.value)}/><p className="input-note">{taskType === "custom" ? "Fields support boolean, integer and string. Use unique keys, labels and descriptions." : "Separate items with commas. All selected fields are tested."}</p><div className="baseline-explainer"><ShieldCheck size={19}/><div><strong>3 baseline runs + 3 runs per preset</strong><p>Up to 18 AI Vision requests per experiment.</p></div></div><button className="primary run-button" onClick={runTest} disabled={!ready || !file || busy}>{busy ? <LoaderCircle className="spin" size={16}/> : <Play size={15}/>} {busy ? "Test in progress" : "Run stress test"}<ArrowRight size={16}/></button></>}
+              {mode === "recorded" ? <><div className="task-selected"><span className="task-icon">{report.task.name === "Text preservation" ? <ScanLine size={21}/> : <Layers3 size={21}/>}</span><div><strong>{report.task.name}</strong><p>{example === "storefront" ? "Keep every selected phrase readable." : "Preserve the visible object count."}</p></div><Check size={17}/></div><label className="field-label">SELECTED INVARIANTS <span>{report.task.fields.length} fields</span></label><div className="invariant-chips">{report.task.fields.map(f => <span key={f.key}><Check size={12}/>{f.label}</span>)}</div><div className="baseline-explainer"><ShieldCheck size={19}/><div><strong>Consistency comes first.</strong><p>Three original runs establish which answers are stable enough to compare.</p></div><span className="runs-token">×3</span></div><div className="recorded-banner"><span className="amber-dot"/><span>Recorded observations · not a live test</span></div></> : <><label className="field-label" htmlFor="task-type">TASK TEMPLATE</label><div className="select-wrap"><select id="task-type" disabled={busy} value={taskType} onChange={e => { setEditingJson(false); setTaskType(e.target.value); setTerms(e.target.value === "count" ? "pens, phones, laptops" : "OPEN, NO SMOKING, NO VAPING"); }}><option value="text">Text preservation</option><option value="count">Object counting</option><option value="custom">Create your own checks</option></select><ChevronDown size={15}/></div>{taskType === "custom" ? <TaskBuilder value={custom} onChange={setCustom} disabled={busy} onEditingChange={setEditingJson}/> : <><label className="field-label" htmlFor="task-content">{taskType === "text" ? "PHRASES TO PRESERVE" : "OBJECTS TO COUNT"}</label><textarea id="task-content" disabled={busy} value={terms} onChange={e => setTerms(e.target.value)}/><p className="input-note">Separate items with commas. All selected fields are tested.</p></>}<div className="baseline-explainer"><ShieldCheck size={19}/><div><strong>3 baseline runs + 3 runs per preset</strong><p>Up to 18 AI Vision requests per experiment.</p></div></div><button className="primary run-button" onClick={runTest} disabled={!ready || !file || busy || (taskType === "custom" && (!customValid || editingJson))}>{busy ? <LoaderCircle className="spin" size={16}/> : <Play size={15}/>} {busy ? "Test in progress" : "Run stress test"}<ArrowRight size={16}/></button></>}
             </section>
           </div>
           {mode === "live" && !ready && <div className="notice setup-notice"><Cloud size={20}/><div><strong>Connect Cloudinary to run live tests</strong><p>Add rotated credentials to <code>.env.local</code>, set <code>CLOUDINARY_CREDENTIALS_ROTATED=true</code>, enable AI Vision, then restart the app. Recorded examples are ready to explore.</p></div></div>}

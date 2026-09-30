@@ -28,7 +28,7 @@ For live analysis, copy `.env.example` to `.env.local`, enter **newly rotated** 
 1. Explore the recorded storefront, desk and cyclist examples.
 2. Switch to **Live analysis** and choose a JPEG, PNG or WebP under 4 MB.
    Or select **Use public test image** to load the included CC0 safety-sign photograph and its text task. Attribution is in `public/samples/ATTRIBUTION.md`.
-3. Choose text preservation or object counting and enter comma-separated phrases or objects. Custom tasks support up to 12 named boolean, nonnegative integer or string fields.
+3. Choose text preservation or object counting and enter comma-separated phrases or objects. Choose **Create your own checks** for a guided task builder: name your task, add instructions, and add up to 12 questions with Yes/No, Count or Text answers. Field keys are generated automatically. **Advanced: edit JSON** supports existing schemas; apply validates changes, while cancel preserves the form. Incomplete questions block a test.
 4. Run the stress test. The original and every eligible preset each receive three analyses, up to 18 API calls. Presets equal to or wider than the source are skipped.
 5. Inspect the comparison matrix and click a width to see exact changes.
 6. Export the JSON report, including raw responses when available.
