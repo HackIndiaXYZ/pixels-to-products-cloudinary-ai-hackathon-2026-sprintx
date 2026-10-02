@@ -2,6 +2,12 @@
 
 **Optimize pixels. Preserve meaning.**
 
+## Demo video
+
+[![Watch the InvariantLens hackathon demo on YouTube](https://img.youtube.com/vi/se1mskAHHnA/hqdefault.jpg)](https://youtu.be/se1mskAHHnA)
+
+**[Play the demo video on YouTube](https://youtu.be/se1mskAHHnA)** — Click the preview above to watch the updated hackathon demo.
+
 InvariantLens tests how Cloudinary image transformations change stable AI outputs. Upload an image, define the information that matters, establish a repeated baseline, and compare it with smaller presets.
 
 Built by **SprintX** for **Pixels to Products — Cloudinary AI Hackathon 2026**. Proposed track: **AI Media Pipelines**.
